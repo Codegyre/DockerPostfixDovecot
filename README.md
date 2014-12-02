@@ -3,7 +3,7 @@
 This docker container is aimed to run Postfix and Docker as email server.
 Inside your application you can receive and manage emails using Dovecot server.
 
-To create email addresses you need MySQL database with [tables created](https://github.com/Codegyre/DockerPostfixDovecot/blob/master/mailschema.sql), add email domains into `mail_virtual_domains`, add email users to `mail_virtual_users`. 
+To create email addresses you need MySQL database with [tables](https://github.com/Codegyre/DockerPostfixDovecot/blob/master/mailschema.sql); add email domains into `mail_virtual_domains`, add email users to `mail_virtual_users`. 
 
 ## Build Container
 
