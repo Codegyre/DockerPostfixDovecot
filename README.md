@@ -16,7 +16,7 @@ docker build -t mailbox .
 Container requires access to mysql socket and directory to store emails. It also exposes email ports
 
 ```
-docker run -i -t -e APP_HOST=example.com -e DB_NAME=dbname -p 25:25 -p 110:110 -p 143:143 -p 995:995 -p 587:587 -v /var/run/mysqld/:/var/run/mysqld -v /home/vmail:/home/vmail/ postfix
+docker run -i -t -e APP_HOST=example.com -e DB_NAME=dbname -p 25:25 -p 110:110 -p 143:143 -p 995:995 -p 587:587 -v /var/run/mysqld/:/var/run/mysqld -v /home/vmail:/home/vmail/ mailbox
 ```
 
 ### Environment Vars
