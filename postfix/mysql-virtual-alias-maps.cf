@@ -1,0 +1,5 @@
+user = {{DB_USER}}
+password = {{DB_PASSWORD}}
+hosts = {{DB_HOST}}
+dbname = {{DB_NAME}}
+query = SELECT destination FROM mail_view_aliases WHERE email='%s'

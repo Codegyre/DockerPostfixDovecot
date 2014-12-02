@@ -1,0 +1,5 @@
+user = {{DB_USER}}
+password = {{DB_PASSWORD}}
+hosts = {{DB_HOST}}
+dbname = {{DB_NAME}}
+query = SELECT 1 FROM mail_view_users WHERE email='%s'
