@@ -50,7 +50,7 @@ sed -i "s/{{APP_HOST}}/$APP_HOST/g" /etc/dovecot/local.conf
 mkdir /run/dovecot
 chmod -R +r /run/dovecot
 chmod -R +w /run/dovecot
-chmov -R 777 /home/vmail/*
+chmod -R 777 /home/vmail
 # start logger
 rsyslogd 
 
