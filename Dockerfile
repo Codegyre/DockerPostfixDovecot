@@ -9,6 +9,9 @@ RUN groupadd -g 5000 vmail && \
     chgrp vmail /etc/dovecot/dovecot.conf && \
     chmod g+r /etc/dovecot/dovecot.conf
 
+RUN chmod -R 755 /etc/postfix/
+RUN chmod -R 755 /etc/dovecot/
+
 RUN postconf -e virtual_uid_maps=static:5000 && \
     postconf -e virtual_gid_maps=static:5000 && \
     postconf -e virtual_mailbox_domains=mysql:/etc/postfix/mysql-virtual-mailbox-domains.cf && \
@@ -22,16 +25,18 @@ RUN postconf -e virtual_uid_maps=static:5000 && \
 RUN echo "dovecot   unix  -       n       n       -       -       pipe"  >> /etc/postfix/master.cf && \
     echo '    flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -d ${recipient}' >> /etc/postfix/master.cf
 
-ADD start.sh /start.sh  
+ADD start.sh /start.sh
+
+RUN chmod -R 755 /usr/lib/postfix/
 
 # default config
 ENV DB_HOST localhost
-ENV DB_USER root 
+ENV DB_USER root
 
 # SMTP ports
 EXPOSE 25
-EXPOSE 587  
-# POP and IMAP ports  
+EXPOSE 587
+# POP and IMAP ports
 EXPOSE 110
 EXPOSE 143
 EXPOSE 995
